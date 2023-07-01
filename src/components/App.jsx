@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { Container } from '@mui/material';
 import Statistics from './Statistics';
 import FeedbackOptions from './FeedbackOptions';
 import Section from './Section';
@@ -27,7 +28,7 @@ export class App extends Component {
   render() {
     const { good, neutral, bad } = this.state;
     return (
-      <>
+      <Container>
         <Section title="Please leave feedback">
           <FeedbackOptions
             options={this.state}
@@ -43,7 +44,7 @@ export class App extends Component {
             positivePercentage={this.countPositiveFeedbackPercentage() || 0}
           />
         </Section>
-      </>
+      </Container>
     );
   }
 }

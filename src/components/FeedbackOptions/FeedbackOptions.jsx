@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import { List, FeedbackBtn } from './FeedbackOptions.styled';
 
 const FeedbackOptions = ({ options, onLeaveFeedback }) => {
   const getOptionsContent = () => {
@@ -7,16 +8,16 @@ const FeedbackOptions = ({ options, onLeaveFeedback }) => {
     for (const key in options) {
       content.push(
         <li key={key}>
-          <button name={key} onClick={onLeaveFeedback}>
+          <FeedbackBtn variant="outlined" size="large" name={key} onClick={onLeaveFeedback}>
             {key}
-          </button>
+          </FeedbackBtn>
         </li>
       );
     }
     return content;
   };
 
-    return (<ul>{getOptionsContent()}</ul>);
+  return <List>{getOptionsContent()}</List>;
 };
 
 FeedbackOptions.propTypes = {
@@ -26,6 +27,6 @@ FeedbackOptions.propTypes = {
     bad: PropTypes.number.isRequired,
   }),
   onLeaveFeedback: PropTypes.func.isRequired,
-}
+};
 
 export default FeedbackOptions;
